@@ -20,6 +20,7 @@ class LoginController extends BaseController
 
     public function checklogin()
     {
+        
         $session = session();
         $userModel = new UserModel();
         $email = $this->request->getVar('Email');

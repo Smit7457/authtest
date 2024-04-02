@@ -6,7 +6,7 @@
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico">
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- STYLES -->
 
     <style {csp-style-nonce}>
@@ -29,7 +29,6 @@
         }
         header {
             background-color: rgba(247, 248, 249, 1);
-            padding: .4rem 0 0;
         }
 
         .menu {
@@ -55,7 +54,6 @@
         }
         header li.menu-item a {
             border-radius: 5px;
-            margin: 5px 0;
             height: 38px;
             line-height: 36px;
             padding: .4rem .65rem;
@@ -197,14 +195,25 @@
                 color: rgba(255, 255, 255, .8);
             }
         }
-
-        
+        .welcome-text {
+            margin-top: 100px;
+            }
+            .welcome-text {
+                margin-top: 100px;
+                }
     </style>
 </head>
 <body>
 
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
+
+
+  
+<?php 
+    include __DIR__ . '../../Sidebar.php';
+?>
+
 
     <div class="menu">
         <ul>

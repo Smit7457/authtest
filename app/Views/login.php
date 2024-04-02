@@ -25,9 +25,6 @@
     input {
         background-color: aliceblue !important;
     }
-    body {
-      /* background-color: #adadad; */
-    }
 
     .myDiv {
       /* background-color: #c9c9c9;  */
