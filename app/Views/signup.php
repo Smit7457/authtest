@@ -7,8 +7,7 @@
     <title>Sign Up</title>
 
     <style>
-   
-        .myDiv {
+         .myDiv {
             /*background-color: #c9c9c9; */
             box-shadow: 0px 0px 15px 3px rgb(0 0 0 / 40%);
             border-radius: 5px;
