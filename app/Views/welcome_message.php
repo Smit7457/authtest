@@ -213,13 +213,21 @@
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
-            <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
+            <?php 
+             $session = session();
+    if ($session->has('UserId')) {
+        echo '<li class="menu-item hidden"><a href="' . base_url('dashboard') . '">Dashboard</a></li>';
+    } else {
+        echo '<li class="menu-item hidden"><a href="' . base_url('login') . '">Login</a></li>';
+    }
+?>
+
+            <!-- <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
             </li>
             <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
             <li class="menu-item hidden"><a
                     href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
-            </li>
+            </li> -->
         </ul>
     </div>
 
