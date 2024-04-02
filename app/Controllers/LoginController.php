@@ -9,13 +9,17 @@ class LoginController extends BaseController
 
     public function index(): string
     {
+        $session = session();
+        $user_id = $session->get('UserId');
+
+        if (!$user_id) {
+            return view('login');
+        }
         return view('login');
     }
 
     public function checklogin()
     {
-
-        
         $session = session();
         $userModel = new UserModel();
         $email = $this->request->getVar('Email');
@@ -51,7 +55,5 @@ class LoginController extends BaseController
         $session->destroy();
         
         return redirect()->to('/');
-      
-
     }
 }
