@@ -44,7 +44,8 @@
                         <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control" >
                     </div>
                     <div class="d-grid mb-3">
-                        <button type="submit" class="btn btn-dark">Sign Up</button>
+                        <button type="submit" class="btn btn-success mb-3">Sign Up</button>
+                        <a href="<?php echo base_url(); ?>" class="btn btn-danger">Back To Login</a>
                     </div>
                 </form>
             </div>

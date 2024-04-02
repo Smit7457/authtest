@@ -53,7 +53,7 @@
           </div>
 
           <div class="mb-3 btnpos">
-            <button type="submit" class="btn btn-primary submitbtn submitdata">Submit</button>
+            <button type="submit" class="btn btn-success submitbtn submitdata">Submit</button>
             <button type="reset" class="btn btn-danger submitbtn">Reset</button>
           </div>
           <div class="btnpos mt-3">
