@@ -11,7 +11,15 @@ class Home extends BaseController
 
     public function Dashboard()
     {
-        return view('Dashboard');
+        $session = session();
+        if ($session->has('UserId')) {
+            return view('Dashboard');
+        } else {
+            $session->setFlashdata('msg', 'Please Login.');
+            return redirect()->to('/login');
+        }
+
+        
     }
 
 }
