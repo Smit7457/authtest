@@ -74,10 +74,6 @@
         alert("<?php echo session('msg'); ?>");
 
       <?php endif; ?>
-
-    
-
-
     });
     </script>
 </body>
