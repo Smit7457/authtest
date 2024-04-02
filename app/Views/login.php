@@ -57,7 +57,7 @@
             <button type="reset" class="btn btn-danger submitbtn">Reset</button>
           </div>
           <div class="btnpos mt-3">
-            <p>Don't Have Account ? <a href="<?= base_url('signup') ?>">Create New Account</a></p>
+            <p>Don't have an account ? <a href="<?= base_url('signup') ?>">Sign Up</a></p>
           </div>
         </form>
       </div>
