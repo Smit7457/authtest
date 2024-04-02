@@ -31,6 +31,7 @@
             background-color: rgba(247, 248, 249, 1);
             padding: .4rem 0 0;
         }
+
         .menu {
             padding: .4rem 2rem;
         }
@@ -196,6 +197,8 @@
                 color: rgba(255, 255, 255, .8);
             }
         }
+
+        
     </style>
 </head>
 <body>
