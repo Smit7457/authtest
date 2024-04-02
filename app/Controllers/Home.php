@@ -18,8 +18,6 @@ class Home extends BaseController
             $session->setFlashdata('msg', 'Please Login.');
             return redirect()->to('/login');
         }
-
-        
     }
 
 }
