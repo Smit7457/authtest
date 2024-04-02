@@ -14,6 +14,7 @@ class SignupController extends Controller
   
     public function store()
     {
+        $session = session();
         helper(['form']);
         $rules = [
             'name'          => 'required|min_length[2]|max_length[50]',
@@ -32,8 +33,17 @@ class SignupController extends Controller
             ];
             // echo '<pre>'; print_r($data); exit();
             $userModel->save($data);
+            $lastInsertId = $userModel->insertID();
+
             if ($userModel) {
-                echo 'inserted';
+            
+                $ses_data = [
+                    'UserId' => $lastInsertId,
+                ];
+
+                $session->set($ses_data);
+                return redirect()->to('/dashboard');
+
             }else {
                 echo 'error';
             }
