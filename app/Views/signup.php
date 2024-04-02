@@ -21,7 +21,7 @@
     <div class="container mt-5">
         <div class="row justify-content-md-center">
             <div class="col-5 myDiv">
-                <h2 class="text-center">Register User</h2>
+                <h2 class="text-center mt-2 mb-2">Register User</h2>
                 <?php if(isset($validation)):?>
                 <div class="alert alert-warning">
                    <?= $validation->listErrors() ?>

@@ -25,9 +25,9 @@ class SignupController extends Controller
         if($this->validate($rules)){
             $userModel = new UserModel();
             $data = [
-                'Name'     => $this->request->getVar('name'),
-                'Email'    => $this->request->getVar('email'),
-                'Mobile'    => $this->request->getVar('mobile'),
+                'Name' => $this->request->getVar('name'),
+                'Email' => $this->request->getVar('email'),
+                'Mobile' => $this->request->getVar('mobile'),
                 'Password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             // echo '<pre>'; print_r($data); exit();
