@@ -20,6 +20,13 @@ class LoginController extends BaseController
 
     public function checklogin()
     {
+
+        $rules = [
+            'email'         => 'required'
+        ];
+
+        if($this->validate($rules)){
+
         $session = session();
         $userModel = new UserModel();
         $email = $this->request->getVar('Email');
@@ -45,7 +52,9 @@ class LoginController extends BaseController
             $session->setFlashdata('msg', 'Email does not exist.');
             return redirect()->to('/login');
         }
-
+    }else{
+        $data['validation'] = $this->validator;
+    }
     }
     
 
