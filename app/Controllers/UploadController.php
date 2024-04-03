@@ -10,14 +10,17 @@ class UploadController extends BaseController
     public function upload()
     {
         $file = $this->request->getFile('file');
-    
+        if(empty($file->getName())){
+            $data['message'] = "Please Upload File.";
+            $data['response'] = false;
+            return redirect()->to('/dashboard')->with('data', $data);
+        }
+
         if ($file->isValid() && $file->getExtension() === 'pdf') {
-            // Move the uploaded file to a desired directory
-            $file->move(WRITEPATH . '../public/uploads', $file->getName());
-    
+
+            $file->move(WRITEPATH . '../public/uploads', $file->getName());    
             $upload_directory = WRITEPATH . '../public/uploads/'. $file->getName();
 
-            // Check if the file exists in the upload directory
             if (file_exists($upload_directory)) {
                 $data['message'] = "File uploaded successfully.";
                 $data['response'] = true; 
@@ -26,7 +29,6 @@ class UploadController extends BaseController
                 $data['response'] = false;
             }
 
-            // cURL call
             $curl = curl_init();
     
             curl_setopt_array($curl, array(
@@ -38,29 +40,25 @@ class UploadController extends BaseController
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array(
-                    'file' => new CURLFile($upload_directory)
-                ),
+                CURLOPT_POSTFIELDS => [
+                    'file' => new CURLFile($upload_directory, 'application/pdf', basename($upload_directory))
+                ],
                 CURLOPT_HTTPHEADER => array(
                     'accept: application/json',
                     'Content-Type: multipart/form-data'
                 ),
             ));
-    
+
             $response = curl_exec($curl);
-            echo "<pre>"; print_r($response); die();
+            $data['record'] = $response;
             curl_close($curl);
+            unlink($upload_directory);
 
-            // Return a success message
-            return redirect()->to('/dashboard')->with('response', $data);
+            return redirect()->to('/dashboard')->with('data', $data);
         } else {
-        
-
             $data['message'] = "Invalid file format!";
             $data['response'] = false;
-            return redirect()->to('/dashboard')->with('response', $data);
-
-
+            return redirect()->to('/dashboard')->with('data', $data);
         }
     }
     
