@@ -18,8 +18,8 @@ class UploadController extends BaseController
 
         if ($file->isValid() && $file->getExtension() === 'pdf') {
 
-            $file->move(WRITEPATH . '../public/uploads', $file->getName());    
-            $upload_directory = WRITEPATH . '../public/uploads/'. $file->getName();
+            $file->move(WRITEPATH . '../public/storage', $file->getName());    
+            $upload_directory = WRITEPATH . '../public/storage/'. $file->getName();
 
             if (file_exists($upload_directory)) {
                 $data['message'] = "File uploaded successfully.";
